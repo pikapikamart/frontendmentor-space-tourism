@@ -1,0 +1,72 @@
+// -----Resets------
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+// resets
+ul,
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+// make sure body have all viewport's height
+body {
+  min-height: 100vh;
+}
+
+// resets
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol{
+  margin: 0;
+}
+
+// remove decoration in a tags
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+// for easier use of media elements
+img {
+  display: block;
+  max-width: 100%;
+}
+
+// inherit all the font
+input,
+button,
+textarea {
+  border: none;
+  font: inherit;
+  outline: none;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Remove the animations if user disable it on their end
+@media (prefers-reduce-motion: reduce) {
+  * {
+      animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+  }
+}

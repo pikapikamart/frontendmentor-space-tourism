@@ -1,0 +1,89 @@
+@use "../Abstract/extension";
+@use "../Abstract/functions" as func;
+@use "../Abstract/mixins" as mix;
+@use "../Abstract/variables" as var;
+
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: func.rem(24) func.rem(24) 0 ;
+  position: absolute;
+  width: 100%;
+
+  &__logo-link {
+    display: inline-block;
+  }
+
+  &__logo {
+    height: func.fluid(40, 5vw, 48);
+    width: func.fluid(40, 5vw, 48);
+  }
+
+  &__hamburger {
+    background: none;
+    height: func.rem(24);
+    position: relative;
+    width: func.rem(24);
+    z-index: 10;
+
+    &::before,
+    &::after {
+      background: no-repeat center center;
+      background-size: cover;
+      content: "";
+      position: absolute;
+      transition: opacity .45s ease;
+      inset: 0;
+    }
+
+    &::before {
+      background-image: url("../../../public/assets/shared/icon-close.svg");
+    }
+
+    &::after {
+      background-image: url("../../../public/assets/shared/icon-hamburger.svg");
+    }
+
+    &[aria-expanded="false"] {
+
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &[aria-expanded="true"] {
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__dropdown {
+    background-color: rgba(255, 255, 255, .14);
+    backdrop-filter: blur(func.rem(50)) brightness(115%) opacity(100%);
+    inset: 0 0 auto auto;
+    min-height: 100vh;
+    padding: func.rem(110) 0 0 func.rem(32);
+    position: fixed;
+    right: func.rem(-20);
+    width: func.rem(274);
+  }
+
+  &__link {
+    color: var.$white;
+    font-size: func.rem(16);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
