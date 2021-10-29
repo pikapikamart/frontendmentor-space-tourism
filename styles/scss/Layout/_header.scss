@@ -5,6 +5,7 @@
 
 
 .header {
+  $root: &;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -55,6 +56,8 @@
       &::after {
         opacity: 1;
       }
+
+      
     }
 
     &[aria-expanded="true"] {
@@ -66,6 +69,11 @@
       &::after {
         opacity: 0;
       }
+
+      + #{$root}__dropdown {
+        right: func.rem(-20);
+        visibility: visible;
+      }
     }
   }
 
@@ -76,14 +84,192 @@
     min-height: 100vh;
     padding: func.rem(110) 0 0 func.rem(32);
     position: fixed;
-    right: func.rem(-20);
+    right: func.rem(-274);
+    transition: right .35s ease,
+                visibility .35s ease;
+    visibility: hidden;
     width: func.rem(274);
+  }
+
+  &__link-list {
+    margin-bottom: func.rem(14);
   }
 
   &__link {
     color: var.$white;
+    display: inline-block;
     font-size: func.rem(16);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    padding: 0 0 func.rem(18) func.rem(30);
+    position: relative;
     text-transform: uppercase;
+    width: 100%;
+
+    &::before {
+      content: attr(data-number);
+      color: var.$white;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: func.rem(16);
+      inset: 0 auto auto 0;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      background-color: var.$white;
+      height: func.rem(32);
+      inset: 0 func.rem(20) auto auto;
+      opacity: 0;
+      position: absolute;
+      width: func.rem(4);
+    }
+
+    &[aria-current="page"]::after {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+
+  .header {
+    padding: 0 0 0 func.fluid(39, 5vw, 55);
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__dropdown {
+      align-items: center;
+      display: flex;
+      gap: 0 func.rem(22);
+      justify-content: space-between;
+      inset: revert;
+      min-height: auto;
+      height: func.rem(96);
+      padding: 0 func.rem(24) 0 func.fluid(48, 8.7vw, 124);
+      position: relative;
+      right: revert;
+      visibility: visible;
+      width: func.fluid(450, 59.5vw, 830);
+
+      &::after {
+        content: "";
+        background-color: var.$white;
+        bottom: 0;
+        height: func.rem(4);
+        position: absolute;
+        transition: left .5s ease,
+                    width .5s ease;
+        width: 0;
+      }
+
+      &[data-currentpage="home"] {
+
+        &::after {
+          left: calc(8.7vw);
+          width: func.rem(42);
+        } 
+      }
+
+      &[data-currentpage="destination"] {
+
+        &::after {
+        left: calc( func.rem(42.3) + func.navlink(292.55, 2) );
+        width: func.rem(105);
+        }
+      }
+
+      &[data-currentpage="crew"] {
+        
+        &::after {
+          left: calc( func.rem(147.3) + func.navlink(292.55, 3) );
+          width: func.rem(43.19);
+        }
+      }
+
+      &[data-currentpage="technology"] {
+        
+        &::after {
+          left: calc( func.rem(190.49) + func.navlink(292.55, 4) );
+          width: func.rem(102.06);
+        }
+      }
+    }
+
+    &__link-list {
+      margin-bottom: 0;
+    }
+
+    &__link {
+      font-size: func.fluid(14, 1.7vw, 16);
+      padding: 0;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 62.5em) {
+
+  .header {
+    padding-top: func.fluid(0, 3vw, 40);
+
+    &__dropdown {
+      padding-right: func.fluid(0, 8.7vw, 124);
+
+      &[data-currentpage="home"] {
+
+        &::after {
+          width: func.rem(76.06);
+        }
+      }
+
+      &[data-currentpage="destination"] {
+
+        &::after {
+          left: calc( func.rem(76.06) + func.navlinkDesktop(436.78, 2) );
+          width: func.rem(143.72);
+        }
+      }
+
+      &[data-currentpage="crew"] {
+
+        &::after {
+          left: calc( func.rem(219.78) + func.navlinkDesktop(436.78, 3) );
+          width: func.rem(76.06);
+        }
+      }
+
+      &[data-currentpage="technology"] {
+
+        &::after {
+          left: calc( func.rem(295.84) + func.navlinkDesktop(436.78, 4) );
+          width: func.rem(140.94);
+        }
+      }
+
+      &::before {
+        content: "";
+        background-color: rgba(255, 255, 255, .25);
+        height: 1px;
+        left: func.rem(30);
+        position: absolute;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        width: func.fluid(200, 35vw, 474);
+      }
+    }
+
+    &__link {
+      padding-left: func.rem(30);
+
+      &::before {
+        display: inline-block;
+      }
+    }
   }
 }

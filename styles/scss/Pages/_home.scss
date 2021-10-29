@@ -4,3 +4,72 @@
 @use "../Abstract/variables" as var;
 
 
+.home {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: func.fluid(112, 27vw, 202) func.fluid(24, 7vw, 48) func.fluid(48, 10vw, 131);
+  text-align: center;
+
+  &__heading {
+    color: var.$blue;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: func.fluid(16, 2vw, 28);
+    letter-spacing: 3.38px;
+    text-transform: uppercase;
+
+    &--largest {
+      color: var.$white;
+      display: block;
+      font-family: 'Bellefair', serif;
+      font-size: func.fluid(80, 20vw, 150);
+      letter-spacing: 0;
+      margin: func.fluid(16, 3.5vw, 24) 0;
+    }
+  }
+
+  &__text-content {
+    max-width: func.rem(444);
+    margin: 0 auto;
+  }
+
+  &__block {
+
+    &:last-of-type {
+      padding-top: func.fluid(81, 20.5vw, 156);
+    }
+  }
+
+  &__explore {
+    background-color: var.$white;
+    border-radius: 50%;
+    color: var.$dark;
+    display: grid;
+    font-size: func.fluid(20, 3.8vw, 32);
+    font-family: 'Bellefair', serif;
+    height: func.fluid(150, 32vw, 274);
+    letter-spacing: 2px;
+    padding: 0;
+    place-content: center;
+    text-transform: uppercase;
+    width: func.fluid(150, 32vw, 274);
+  }
+}
+
+@media (min-width: 62.5em) {
+
+  .home {
+    flex-direction: row;
+    padding: func.rem(387) func.fluid(90, 13vw, 164) func.fluid(48, 10vw, 131);
+    text-align: left;
+
+    &__block {
+
+      &:last-of-type {
+        padding-top: func.rem(108);
+      }
+    }
+  }
+}

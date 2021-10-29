@@ -19,6 +19,15 @@ h4 {
   font-family: 'Bellefair', serif;
 }
 
+a,
+button {
+
+  &:focus-visible {
+    outline: 3px dashed rgb(104, 190, 205);
+    outline-offset: 3px;
+  }
+}
+
 .main {
   background: no-repeat center center;
   background-size: 100% 100%;
@@ -29,15 +38,54 @@ h4 {
     &-home {
       background-image: url("../../../public/assets/home/background-home-mobile.jpg");
     }
+
+    &-destination {
+      background-image: url("../../../public/assets/desination/background-desination-mobile.jpg");
+    }
+    
+    &-crew {
+      background-image: url("../../../public/assets/crew/background-crew-mobile.jpg");
+    }
+
+    &-technology {
+      background-image: url("../../../public/assets/technology/background-technology-mobile.jpg");
+    }
   }
 }
 
-a,
-button {
+p {
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.77;
+}
 
-  &:focus-visible {
-    outline: 3px dashed rgb(104, 190, 205);
-    outline-offset: 3px;
+// CUSTOMS
+.text-15 {
+  color: var.$blue;
+  font-size: func.fluid(15, 1.9vw, 18);
+}
+
+@media (min-width: 48em) {
+
+  .main {
+
+    &--theme {
+
+      &-home {
+        background-image: url("../../../public/assets/home/background-home-tablet.jpg");
+      }
+    }
   }
-  
+}
+
+@media (min-width: 62.5em) {
+
+  .main {
+
+    &--theme {
+
+      &-home {
+        background-image: url("../../../public/assets/home/background-home-desktop.jpg");
+      }
+    }
+  }
 }

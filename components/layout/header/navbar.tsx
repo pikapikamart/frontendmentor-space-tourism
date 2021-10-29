@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
+import { useState, useEffect, useRef } from "react";
 
 import Hamburger from "./hamburger";
+import Navlinks from "./navlinks";
 
 
 const Navbar = () =>{
-  
+  const [ currentPage, setCurrentPage ] = useState(null);
+
   return (
     <>
       <div>
@@ -18,30 +21,9 @@ const Navbar = () =>{
           </a>
         </Link>
       </div>
-      <nav>
+      <nav aria-label="primary">
         <Hamburger />
-        <ul className="header__dropdown">
-          <li className="header__link-list">
-            <Link href="/">
-              <a className="header__link">home</a>
-            </Link>
-          </li>
-          <li className="header__link-list">
-            <Link href="/destination">
-              <a className="header__link">destination</a>
-            </Link>
-          </li>
-          <li className="header__link-list">
-            <Link href="/crew">
-              <a className="header__link">crew</a>
-            </Link>
-          </li>
-          <li className="header__link-list">
-            <Link href="/technology">
-              <a className="header__link">technology</a>
-            </Link>
-          </li>
-        </ul>
+        <Navlinks />
       </nav>
     </>
   );
