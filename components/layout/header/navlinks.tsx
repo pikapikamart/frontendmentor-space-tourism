@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { useRouter } from "next/dist/client/router";
+import { useState, useRef, useEffect } from "react";
 
 
-const Navlinks = () =>{
+const Navlinks = ({ currentPath }: { currentPath: string }) =>{
   const [ currentPage, setCurrentPage ] = useState<HTMLAnchorElement | null>(null);
-  const currentPath = useRouter().pathname;
   const home = useRef(null);
   const destination = useRef(null);
   const crew = useRef(null);

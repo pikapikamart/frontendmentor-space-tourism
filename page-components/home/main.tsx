@@ -1,11 +1,11 @@
 
-import Hero from "@/components/home/hero";
+import HomeHero from "@/components/home/hero";
 
 
 const HomePage = () =>{
   return (
     <main className="main main--theme-home">
-      <Hero />
+      <HomeHero />
     </main>
   );
 }

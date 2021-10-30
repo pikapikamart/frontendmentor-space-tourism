@@ -2,3 +2,115 @@
 @use "../Abstract/functions" as func;
 @use "../Abstract/mixins" as mix;
 @use "../Abstract/variables" as var;
+
+
+.destination {
+  padding-top: func.fluid(32, 5vw, 64);
+
+  &__image-holder {
+    margin-bottom: func.fluid(26, 5vw, 53);
+    position: relative;
+  }
+
+  &__image {
+    height: func.fluid(170, 40vw, 445);
+    margin: 0 auto;
+    width: func.fluid(170, 40vw, 445);
+
+    &:last-of-type {
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.tabs {
+
+  &__selections {
+    display: flex;
+    gap: 0 func.fluid(26, 3vw, 35);
+    justify-content: center;
+    margin-bottom: func.fluid(31, 5vw, 52);
+  }
+
+  &__choice {
+    background: none;
+    color: var.$blue;
+    font-size: func.fluid(14, 1.2vw, 16);
+    letter-spacing: 2.36px;
+    text-transform: uppercase;
+    padding: 0;
+    position: relative;
+    transition: color .45s ease;
+
+    &[aria-selected="true"] {
+      color: var.$white;
+    }
+  }
+
+  &__content {
+    max-width: func.rem(555);
+    margin: 0 auto;
+    text-align: center;
+
+    &-heading {
+      color: var.$white;
+      font-size: func.fluid(56, 10vw, 100);
+      font-weight: 400;
+      margin-bottom: func.fluid(0, 1vw, 14);
+      text-transform: uppercase;
+    }
+
+    &-information {
+      border-top: 1px solid rgba(56, 59, 75);
+      display: flex;
+      flex-wrap: wrap;
+      gap: func.rem(32) 0;
+      justify-content: center;
+      margin-top: func.fluid(32, 5vw, 54);
+      padding-top: func.rem(28);
+    }
+
+    &-info {
+      min-width: func.rem(216);
+      text-transform: uppercase;
+
+      p {
+
+        &:first-of-type {
+          color: var.$blue;
+          font-size: func.rem(14);
+          letter-spacing: 2.36px;
+          margin-bottom: func.rem(12);
+        }
+        
+        &:last-of-type {
+          color: var.$white;
+          font-family: 'Bellefair', serif;
+          font-size: func.rem(28);
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 48em) {
+
+}
+
+@media (min-width: 62.5em) {
+
+
+}
+
+
+// @media (min-width: 48em) {
+  
+// }
+
+// @media (min-width: 62.5em) {
+
+// }

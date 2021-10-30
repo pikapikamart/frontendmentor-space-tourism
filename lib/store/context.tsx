@@ -3,16 +3,14 @@ import {ReactNode} from "react"
 
 
 export interface Destinations {
-  destinations: {
-    name: string,
-    images: {
-      png: string,
-      webp: string
-    },
-    description: string,
-    distance: string,
-    travel: string
-  }
+  name: string,
+  images: {
+    png: string,
+    webp: string
+  },
+  description: string,
+  distance: string,
+  travel: string
 }
 
 export interface Crew {
@@ -23,7 +21,7 @@ export interface Crew {
   },
   role: string,
   bio: string
-}[]
+}
 
 export interface Technology {
   name: string,
@@ -32,12 +30,12 @@ export interface Technology {
     landscape: string
   },
   description: string
-}[]
+}
 
 interface SpaceDataShape {
-  destinations: Destinations,
-  crew: Crew,
-  technology: Technology
+  destinations: Destinations[],
+  crew: Crew[],
+  technology: Technology[]
 }
 
 interface ContextChildren {
@@ -57,9 +55,8 @@ export const ContextWrapper = ( {children} : ContextChildren) =>{
 
       setSpaceData(jsonSpaceData);
     };
-
     fetchSpaceData();
-  })
+  }, []);
 
   return (
     <SpaceDataContext.Provider value={spaceData}>

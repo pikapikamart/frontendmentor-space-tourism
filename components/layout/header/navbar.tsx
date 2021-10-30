@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-import { useState, useEffect, useRef } from "react";
 
 import Hamburger from "./hamburger";
 import Navlinks from "./navlinks";
 
 
 const Navbar = () =>{
-  const [ currentPage, setCurrentPage ] = useState(null);
+  const currentPath = useRouter().pathname;
+
 
   return (
     <>
@@ -22,8 +22,8 @@ const Navbar = () =>{
         </Link>
       </div>
       <nav aria-label="primary">
-        <Hamburger />
-        <Navlinks />
+        <Hamburger currentPath={currentPath.slice(1)} />
+        <Navlinks currentPath={currentPath}/>
       </nav>
     </>
   );

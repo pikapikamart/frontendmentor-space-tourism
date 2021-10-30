@@ -28,6 +28,11 @@ button {
   }
 }
 
+p {
+  font-family: 'Barlow', sans-serif;
+  line-height: 1.77;
+}
+
 .main {
   background: no-repeat center center;
   background-size: 100% 100%;
@@ -40,7 +45,7 @@ button {
     }
 
     &-destination {
-      background-image: url("../../../public/assets/desination/background-desination-mobile.jpg");
+      background-image: url("../../../public/assets/destination/background-destination-mobile.jpg");
     }
     
     &-crew {
@@ -53,10 +58,37 @@ button {
   }
 }
 
-p {
-  font-family: 'Barlow', sans-serif;
-  line-height: 1.77;
+.hero {
+  padding: func.fluid(88, 17vw, 212) func.fluid(24, 3vw, 38) 0 ;
+
+  &__heading {
+    color: var.$blue;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: func.fluid(16, 2.6vw, 28);
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+
+    &--padded {
+      max-width: max-content;
+      margin: 0 auto;
+      padding-left: func.fluid(18, 2vw, 24);
+      position: relative;
+
+      &::before {
+        content: attr(data-pagenumber);
+        color: rgba(255, 255, 255, .35);
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: 700;
+        inset: 0 auto auto 0;
+        position: absolute;
+        transform: translateX(-100%);
+      }
+    }
+  }
 }
+
 
 // CUSTOMS
 .text-15 {
@@ -73,6 +105,18 @@ p {
       &-home {
         background-image: url("../../../public/assets/home/background-home-tablet.jpg");
       }
+
+      &-destination {
+        background-image: url("../../../public/assets/destination/background-destination-tablet.jpg");
+      }
+
+      &-crew {
+        background-image: url("../../../public/assets/crew/background-crew-tablet.jpg");
+      }
+
+      &-technology {
+        background-image: url("../../../public/assets/technology/background-technology-tablet.jpg");
+      }
     }
   }
 }
@@ -86,6 +130,26 @@ p {
       &-home {
         background-image: url("../../../public/assets/home/background-home-desktop.jpg");
       }
+
+      &-destination {
+        background-image: url("../../../public/assets/destination/background-destination-desktop.jpg");
+      }
+
+      &-crew {
+        background-image: url("../../../public/assets/crew/background-crew-desktop.jpg");
+      }
+
+      &-technology {
+        background-image: url("../../../public/assets/technology/background-technology-desktop.jpg");
+      }
+    }
+  }
+
+  .hero {
+    padding: func.fluid(88, 17vw, 212) func.fluid(90, 13vw, 165) 0 ;
+  
+    &__heading {
+      letter-spacing: 4.72px;
     }
   }
 }

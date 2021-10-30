@@ -13,12 +13,6 @@
   text-align: center;
 
   &__heading {
-    color: var.$blue;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 400;
-    font-size: func.fluid(16, 2vw, 28);
-    letter-spacing: 3.38px;
-    text-transform: uppercase;
 
     &--largest {
       color: var.$white;

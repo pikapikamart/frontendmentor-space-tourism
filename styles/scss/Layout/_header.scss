@@ -27,7 +27,7 @@
     height: func.rem(24);
     position: relative;
     width: func.rem(24);
-    z-index: 10;
+    z-index: 21;
 
     &::before,
     &::after {
@@ -89,6 +89,7 @@
                 visibility .35s ease;
     visibility: hidden;
     width: func.rem(274);
+    z-index: 20;
   }
 
   &__link-list {
