@@ -58,6 +58,20 @@ export const ContextWrapper = ( {children} : ContextChildren) =>{
     fetchSpaceData();
   }, []);
 
+// Preload all images
+  useEffect(() =>{
+    if ( spaceData ) {
+      Object.keys(spaceData).forEach(( spaceKey: String ) => {
+        spaceData[spaceKey as keyof typeof spaceData].map((data) =>{
+          Object.keys(data.images).forEach((imagesKey: string) =>{
+            const image = new Image();
+            image.src = data.images[imagesKey as keyof typeof data.images]
+          })
+        })
+      })
+    }
+  }, [ spaceData ])
+
   return (
     <SpaceDataContext.Provider value={spaceData}>
       {children}

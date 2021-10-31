@@ -2,3 +2,59 @@
 @use "../Abstract/functions" as func;
 @use "../Abstract/mixins" as mix;
 @use "../Abstract/variables" as var;
+
+
+.crew {
+  display: grid;
+  gap: func.rem(32) 0;
+  padding: func.fluid(32, 5vw, 64) 0 func.rem(104);
+
+  &__image {
+    height: func.rem(222);
+    margin: 0 auto;
+
+    &-holder {
+      border-bottom: 1px solid rgba(56, 59, 75);
+    }
+  }
+
+  &__selections {
+    display: flex;
+    gap: 0 func.rem(16);
+    justify-content: center;
+  }
+
+  &__selection {
+    line-height: 0;
+
+    &-button {
+      background-color: rgba(255, 255, 255, .17);
+      border-radius: 50%;
+      min-height: func.fluid(10, 1vw, 15);
+      min-width: func.fluid(10, 1vw, 15);
+      padding: 0;
+      transition: background-color 1s ease;
+
+      &[aria-selected="true"] {
+        background-color: var.$white;
+      }
+    }
+  }
+
+  &__article {
+    @extend %max-width-hero;
+    text-align: center;
+
+    &-heading {
+      @extend %hero-content-heading;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+
+}
+
+@media (min-width: 62.5em) {
+
+}

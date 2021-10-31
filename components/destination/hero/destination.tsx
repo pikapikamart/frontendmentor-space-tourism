@@ -8,7 +8,7 @@ interface TargetDataset extends HTMLButtonElement {
   index: number
 }
 
-export interface DestinationButton extends React.MouseEvent<HTMLButtonElement, MouseEvent> {
+export interface EventButton extends React.MouseEvent<HTMLButtonElement, MouseEvent> {
   target: TargetDataset
 }
 
@@ -17,14 +17,12 @@ const Destination = () =>{
   const spaceContext = useSpaceContext();
   const destinationsData = spaceContext?.destinations;
   const [ tabindex, setTabindex ] = useState(0);
-  const [ firstLoad, setFirstLoad ] = useState(true);
   const [ hasChanged, setHasChanged ] = useState(false);
   const destImageOne = useRef<HTMLImageElement | null>(null);
   const destImageTwo = useRef<HTMLImageElement | null>(null);
   const copyIndex = useRef(0);
 
   useEffect(() =>{
-    if ( firstLoad ) return;
 
     const timeout = setTimeout(()=>{
       copyIndex.current = tabindex;
@@ -35,22 +33,11 @@ const Destination = () =>{
 
   }, [ tabindex ])
 
-  // preload images
-  useEffect(() =>{
-    if ( destinationsData ) {
-      destinationsData.forEach(destination =>{
-        const image = new Image();
-        image.src = destination.images.webp;
-      })
-      setFirstLoad(false);
-    }
-  }, [ destinationsData ])
-
   const getDestinationsName = () =>(
     spaceContext?.destinations ? spaceContext.destinations.reduce((accu, cur) => accu.concat(cur.name), [] as string[]) : []
   )
 
-  const changeDestinationIndex = (event: DestinationButton) =>{
+  const changeDestinationIndex = (event: EventButton) =>{
     const { target } = event;
     
     if ( target.dataset.index && tabindex!==parseInt(target.dataset.index) ) {

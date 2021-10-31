@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { DestinationButton } from "./destination";
+import { EventButton } from "./destination";
 
 
 interface TabSelectionsProps {
   tabindex: number,
   destinationNames: string[],
-  changeIndex:  ( event: DestinationButton) => void
+  changeIndex:  ( event: EventButton) => void
 }
 
 const TabSelections = ({ tabindex, destinationNames, changeIndex }: TabSelectionsProps) =>{

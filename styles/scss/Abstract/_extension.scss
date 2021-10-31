@@ -1,0 +1,25 @@
+@use "./functions" as func;
+@use "./mixins" as mix;
+@use "./variables" as var;
+
+
+%max-width-hero {
+  max-width: func.rem(458);
+}
+
+%hero-content-heading {
+  align-items: center;
+  color: var.$white;
+  display: flex;
+  font-size: func.fluid(24, 5vw, 56);
+  flex-direction: column;
+  font-weight: 400;
+  gap: func.fluid(8, 1vw, 15);
+  margin-bottom: func.fluid(16, 2vw, 27);
+  text-transform: uppercase;
+
+  span {
+    color: rgba(255, 255, 255, .5);
+    font-size: func.fluid(16, 3vw, 32);
+  }
+}
