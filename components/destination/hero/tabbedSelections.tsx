@@ -1,5 +1,4 @@
 import { useRef } from "react";
-
 import { DestinationButton } from "./destination";
 
 
@@ -14,10 +13,16 @@ const TabSelections = ({ tabindex, destinationNames, changeIndex }: TabSelection
   const length = destinationNames.length;
   let destinationTabindex = tabindex;
 
+  const addRef = ( element: HTMLButtonElement | null) =>{
+    if ( element && !tabRefs.current.includes(element) ) {
+      tabRefs.current.push(element);
+    }
+  }
+
   const renderTabChoices = () =>{
     const processedData = destinationNames.map(( name, index ) =>(
       <button key={index} 
-        ref={ element => element? tabRefs.current.push(element) : null}
+        ref={ addRef}
         className="tabs__choice"
         role="tab"
         aria-controls="destination-choice"
@@ -50,15 +55,12 @@ const TabSelections = ({ tabindex, destinationNames, changeIndex }: TabSelection
   }
 
   return (
-    <div className="tabs"
-      role="tablist"
-      aria-label="destination selection tabs"
-      onKeyDown={handleChangeTabFocus}
-    >
-      <div className="tabs__selections">
+      <div className="tabs__selections"
+        role="tablist"
+        aria-label="destination selection tabs"
+        onKeyDown={handleChangeTabFocus}>
         {renderTabChoices()}
       </div>
-    </div>
   );
 }
 

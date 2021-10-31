@@ -106,15 +106,6 @@
     text-transform: uppercase;
     width: 100%;
 
-    &::before {
-      content: attr(data-number);
-      color: var.$white;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: func.rem(16);
-      inset: 0 auto auto 0;
-      position: absolute;
-    }
-
     &::after {
       content: "";
       background-color: var.$white;
@@ -128,7 +119,15 @@
     &[aria-current="page"]::after {
       opacity: 1;
     }
+
+    &-number {
+      color: var.$white;
+      font-weight: 700;
+      inset: 0 auto auto 0;
+      position: absolute;
+    }
   }
+
 }
 
 @media (min-width: 48em) {
@@ -206,7 +205,7 @@
       font-size: func.fluid(14, 1.7vw, 16);
       padding: 0;
 
-      &::before,
+      &-number,
       &::after {
         display: none;
       }
@@ -268,7 +267,7 @@
     &__link {
       padding-left: func.rem(30);
 
-      &::before {
+      &-number {
         display: inline-block;
       }
     }

@@ -1,18 +1,18 @@
 import { Destinations } from "@/lib/store/context";
 
+
 interface TabContentProps {
   tabindex: number,
   destination: Destinations
 }
 
-
 const TabContent = ({ tabindex, destination } : TabContentProps) =>{
 
   return (
     <div className="tabs__content"
-    id="destination-choice"
-    role="tabpanel"
-    aria-labelledby={`destinationTab-${tabindex+1}`}
+      id="destination-choice"
+      role="tabpanel"
+      aria-labelledby={`destinationTab-${tabindex+1}`}
     >
       <h2 className="tabs__content-heading">{destination.name}</h2>
       <p className="text-15">{destination.description}</p>

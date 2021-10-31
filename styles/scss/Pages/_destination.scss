@@ -5,17 +5,17 @@
 
 
 .destination {
-  padding-top: func.fluid(32, 5vw, 64);
+  padding: func.fluid(32, 5vw, 64) 0 func.fluid(57, 18vw, 118);
 
   &__image-holder {
-    margin-bottom: func.fluid(26, 5vw, 53);
+    margin-bottom: func.fluid(26, 8vw, 53);
     position: relative;
   }
 
   &__image {
-    height: func.fluid(170, 40vw, 445);
+    min-height: func.fluid(170, 30vw, 445);
     margin: 0 auto;
-    width: func.fluid(170, 40vw, 445);
+    min-width: func.fluid(170, 30vw, 445);
 
     &:last-of-type {
       left: 50%;
@@ -23,6 +23,37 @@
       top: 0;
       transform: translateX(-50%);
     }
+
+    &.change {
+
+      &:first-of-type {
+        animation: rotate 1.55s cubic-bezier(0, 0.4, 0.57, 0.48) forwards;
+      }
+
+      &:last-of-type {
+        animation: rotate-opacity 1.5s cubic-bezier(0, 0.4, 0.57, 0.48) forwards;
+      }
+    }
+  }
+}
+
+@keyframes rotate-opacity {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -30,7 +61,7 @@
 
   &__selections {
     display: flex;
-    gap: 0 func.fluid(26, 3vw, 35);
+    gap: 0 func.fluid(26, 5vw, 35);
     justify-content: center;
     margin-bottom: func.fluid(31, 5vw, 52);
   }
@@ -47,6 +78,25 @@
 
     &[aria-selected="true"] {
       color: var.$white;
+
+      &::after {
+        background-color: var.$white;
+        transform: translateY(func.rem(12)) scaleX(1);
+      }
+    }
+
+    &::after {
+      content: "";
+      bottom: 0;
+      background-color: var.$blue;
+      left: 0;
+      height: func.rem(3);
+      position: absolute;
+      transition: background-color .5s ease,
+                  transform .5s ease;
+      transform-origin: center;
+      transform: translatey(func.rem(12)) scaleX(0);
+      width: 100%;
     }
   }
 
@@ -83,6 +133,7 @@
           color: var.$blue;
           font-size: func.rem(14);
           letter-spacing: 2.36px;
+          line-height: 1.25;
           margin-bottom: func.rem(12);
         }
         
@@ -90,6 +141,7 @@
           color: var.$white;
           font-family: 'Bellefair', serif;
           font-size: func.rem(28);
+          line-height: 1.15;
         }
       }
     }
@@ -103,6 +155,55 @@
 
 @media (min-width: 62.5em) {
 
+  .destination {
+    align-items: flex-start;
+    display: flex;
+    gap: 0 func.rem(20);
+    justify-content: space-between;
+
+    &__image-holder {
+      margin-bottom: 0;
+      padding-top: func.rem(8);
+    }
+
+    &__image {
+
+      &:last-of-type {
+        top: func.rem(8);
+      }
+    }
+  }
+
+  .tabs {
+    max-width: func.rem(445);
+
+    &__selections {
+      justify-content: flex-start;
+    }
+
+    &__choice {
+
+      &:hover {
+
+        &::after {
+          transform: translateY(func.rem(12)) scaleX(1);
+        }
+      }
+    }
+
+    &__content {
+      text-align: left;
+
+      &-information {
+        gap: 0 func.rem(80);
+        justify-content: flex-start;
+      }
+
+      &-info {
+        min-width: max-content;
+      }
+    }
+  }
 
 }
 

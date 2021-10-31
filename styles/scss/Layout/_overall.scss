@@ -30,7 +30,7 @@ button {
 
 p {
   font-family: 'Barlow', sans-serif;
-  line-height: 1.77;
+  line-height: 1.78;
 }
 
 .main {
@@ -59,7 +59,7 @@ p {
 }
 
 .hero {
-  padding: func.fluid(88, 17vw, 212) func.fluid(24, 3vw, 38) 0 ;
+  padding: func.fluid(88, 17vw, 212) func.fluid(24, 6vw, 38) 0 ;
 
   &__heading {
     color: var.$blue;
@@ -74,18 +74,15 @@ p {
       margin: 0 auto;
       padding-left: func.fluid(18, 2vw, 24);
       position: relative;
-
-      &::before {
-        content: attr(data-pagenumber);
-        color: rgba(255, 255, 255, .35);
-        font-size: inherit;
-        font-family: inherit;
-        font-weight: 700;
-        inset: 0 auto auto 0;
-        position: absolute;
-        transform: translateX(-100%);
-      }
     }
+  }
+
+  &__heading-number {
+    color: rgba(255, 255, 255, .35);
+    font-weight: 700;
+    inset: 0 auto auto 0;
+    position: absolute;
+    transform: translateX(-100%);
   }
 }
 
@@ -93,7 +90,7 @@ p {
 // CUSTOMS
 .text-15 {
   color: var.$blue;
-  font-size: func.fluid(15, 1.9vw, 18);
+  font-size: func.fluid(15, 2.1vw, 18);
 }
 
 @media (min-width: 48em) {
@@ -146,10 +143,11 @@ p {
   }
 
   .hero {
-    padding: func.fluid(88, 17vw, 212) func.fluid(90, 13vw, 165) 0 ;
+    padding: func.fluid(88, 17vw, 212) func.fluid(90, 11.5vw, 165) 0 ;
   
     &__heading {
       letter-spacing: 4.72px;
+      margin: 0 auto 0 0;
     }
   }
 }
