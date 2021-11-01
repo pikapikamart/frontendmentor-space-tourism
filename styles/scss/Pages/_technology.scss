@@ -130,6 +130,20 @@
       }
     }
 
+    &__selection {
+
+      &-button {
+        transition: border-color .35s ease;
+
+        &:hover {
+
+          &:not(&[aria-selected="true"]) {
+            border-color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+
     &__article {
       grid-column: 2 / 3;
       grid-row: 1 / -1;

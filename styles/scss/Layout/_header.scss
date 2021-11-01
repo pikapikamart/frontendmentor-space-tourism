@@ -269,10 +269,36 @@
 
     &__link {
       padding-left: func.rem(30);
+      position: relative;
 
       &-number {
         display: inline-block;
       }
+
+      &::before {
+        content: "";
+        background-color: rgba(255, 255, 255, .5);
+        bottom: func.rem(-38);
+        height: 3px;
+        left: 0;
+        position: absolute;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .35s ease;
+        width: 100%;
+      }
+
+      &:hover {
+
+        &:not(&[aria-current="page"]) {
+          
+          &::before {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }  
+      }
+
     }
   }
 }

@@ -67,5 +67,34 @@
         padding-top: func.rem(108);
       }
     }
+
+    &__explore {
+      box-shadow: 
+                0 0 0 0 rgba(187, 187, 187, 0.6),
+                0 0 0 0 rgba(187, 187, 187, 0.6);
+
+      &:hover {
+        animation: pump-shadow 2s ease infinite;
+      }
+    }
+  }
+}
+
+@keyframes pump-shadow {
+  0% {
+      transform: scale(0.95);
+  }
+  15% {
+      transform: scale(1);
+  }
+  65% {
+      box-shadow: 
+              0 0 0 1.5rem rgba(99, 99, 99, 0),
+              0 0 0 3.5rem rgba(99, 99, 99, 0);
+  }
+  100% {
+      box-shadow:
+              0 0 0 2.5rem rgba(99, 99, 99, 0),
+              0 0 0 3.5rem rgba(187, 187, 187, 0);
   }
 }
