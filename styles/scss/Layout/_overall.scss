@@ -159,6 +159,8 @@ p {
   }
 
   .hero {
+    max-width: func.rem(1440);
+    margin: 0 auto;
     padding: func.fluid(88, 17vw, 212) func.fluid(90, 11.5vw, 165) 0 ;
   
     &__heading {

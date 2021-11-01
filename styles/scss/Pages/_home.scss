@@ -56,6 +56,8 @@
 
   .home {
     flex-direction: row;
+    max-width: func.rem(1440);
+    margin: 0 auto;
     padding: func.rem(387) func.fluid(90, 13vw, 164) func.fluid(48, 10vw, 131);
     text-align: left;
 

@@ -1,5 +1,7 @@
 import { useSpaceContext } from "@/lib/store/context";
 import { useState, useEffect, useRef } from "react";
+import { useChangeSelection } from "@/lib/hooks";
+import DestinationImage from "./destinationImage";
 import TabSelections from "./tabbedSelections";
 import TabContent from "./tabbedContent";
 
@@ -12,65 +14,48 @@ export interface EventButton extends React.MouseEvent<HTMLButtonElement, MouseEv
   target: TargetDataset
 }
 
-
 const Destination = () =>{
   const spaceContext = useSpaceContext();
   const destinationsData = spaceContext?.destinations;
-  const [ tabindex, setTabindex ] = useState(0);
-  const [ hasChanged, setHasChanged ] = useState(false);
-  const destImageOne = useRef<HTMLImageElement | null>(null);
-  const destImageTwo = useRef<HTMLImageElement | null>(null);
+  const { dataIndex, handleChangeDataIndex, setSiteData, hasSelected, setHasSelected } = useChangeSelection();
+  // const [ tabindex, setTabindex ] = useState(0);
+  // const [ hasChanged, setHasChanged ] = useState(false);
+  // const destImageOne = useRef<HTMLImageElement | null>(null);
+  // const destImageTwo = useRef<HTMLImageElement | null>(null);
   const copyIndex = useRef(0);
 
   useEffect(() =>{
 
     const timeout = setTimeout(()=>{
-      copyIndex.current = tabindex;
-      setHasChanged(false);
-    }, 1510)
+      copyIndex.current = dataIndex;
+      setHasSelected(false);
+    }, 1100)
 
     return () => clearTimeout(timeout);
 
-  }, [ tabindex ])
+  }, [ dataIndex ])
 
   const getDestinationsName = () =>(
     spaceContext?.destinations ? spaceContext.destinations.reduce((accu, cur) => accu.concat(cur.name), [] as string[]) : []
   )
 
-  const changeDestinationIndex = (event: EventButton) =>{
-    const { target } = event;
-    
-    if ( target.dataset.index && tabindex!==parseInt(target.dataset.index) ) {
-      setTabindex(parseInt(target.dataset.index));
-      setHasChanged(true);
-    }
-  }
-
-
   return (
     <div className="destination">
       {destinationsData && (
         <>
-          <div className="destination__image-holder">
-            <img className={`destination__image ${hasChanged? "change": ""}`} 
-              src={destinationsData[tabindex].images.webp}
-              alt={destinationsData[tabindex].name}
-              ref={destImageOne} />
-            <img className={`destination__image ${hasChanged? "change": ""}`}
-              src={destinationsData[copyIndex.current].images.webp}
-              alt=""
-              aria-hidden="true"
-              ref={destImageTwo} />
-          </div>
+          <DestinationImage
+            destination={destinationsData[dataIndex]}
+            hasChanged={hasSelected}
+            copyImage={destinationsData[copyIndex.current].images.webp} />
           <div className="tabs">
             <TabSelections 
-              tabindex={tabindex} 
+              tabindex={dataIndex} 
               destinationNames={getDestinationsName()}
-              changeIndex={changeDestinationIndex}
+              changeIndex={handleChangeDataIndex}
             />
             <TabContent 
-              tabindex={tabindex} 
-              destination={destinationsData[tabindex]} 
+              tabindex={dataIndex} 
+              destination={destinationsData[dataIndex]} 
             />
           </div>
         </>

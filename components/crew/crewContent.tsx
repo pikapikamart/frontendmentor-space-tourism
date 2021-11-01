@@ -2,11 +2,10 @@ import { Crew } from "@/lib/store/context";
 
 
 interface CrewContentProps {
-  crewSingleData: Crew,
-  hasSelected: boolean
+  crewSingleData: Crew
 }
 
-const CrewContent = ({ crewSingleData, hasSelected }: CrewContentProps) =>{
+const CrewContent = ({ crewSingleData }: CrewContentProps) =>{
 
   return (
     <article className="crew__article">

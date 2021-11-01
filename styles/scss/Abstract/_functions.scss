@@ -11,15 +11,15 @@
 }
 
 @function navlink($foursize, $position) {
-  $currentWidthSize: calc( fluid(450, 59.5vw, 830) - ( rem(24) + 8.7vw) );
+  $currentWidthSize: calc( fluid(450, 59.5vw, 830) - ( rem(24) + min(8.7vw, rem(124))) );
   $currentDividedGap: calc( ($currentWidthSize - rem($foursize)) / 3);
   $placement: calc( 8.7vw + ($currentDividedGap * ( $position - 1)) );
   @return $placement;
 }
 
 @function navlinkDesktop($foursize, $position) {
-  $currentWidthSize: calc( fluid(450, 59.5vw, 830) - ( 8.7vw + 8.7vw) );
+  $currentWidthSize: calc( fluid(450, 59.5vw, 830) - ( min(17.4vw, rem(248))));
   $currentDividedGap: calc( ($currentWidthSize - rem($foursize)) / 3);
-  $placement: calc( 8.7vw + ($currentDividedGap * ( $position - 1)) );
+  $placement: calc( min(rem(124), 8.7vw) + ($currentDividedGap * ( $position - 1)) );
   @return $placement;
 }

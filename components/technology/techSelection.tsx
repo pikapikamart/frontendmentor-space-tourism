@@ -1,5 +1,5 @@
 import { Technology } from "@/lib/store/context";
-import { EventButton } from "../destination/hero/destination"
+import { EventButton } from "../destination/destination"
 
 
 interface TechSelectionsProps {

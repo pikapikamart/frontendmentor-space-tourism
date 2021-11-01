@@ -12,7 +12,8 @@ const HomeHero = () =>{
         </div>
         <div className="home__block">
           {/* add sr-only text */}
-          <button className="home__explore">Explore</button>
+          <button className="home__explore">Explore 
+          <span className="visually-hidden"> frontendmentor space tourism</span></button>
         </div>
       </section>
   );

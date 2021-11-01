@@ -1,5 +1,5 @@
 
-import HomeHero from "@/components/home/hero";
+import HomeHero from "@/components/home";
 
 
 const HomePage = () =>{

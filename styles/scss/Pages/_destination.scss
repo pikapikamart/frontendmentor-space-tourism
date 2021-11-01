@@ -26,36 +26,22 @@
 
     &.change {
 
-      &:first-of-type {
-        animation: rotate 1.55s cubic-bezier(0, 0.4, 0.57, 0.48) forwards;
-      }
-
       &:last-of-type {
-        animation: rotate-opacity 1.5s cubic-bezier(0, 0.4, 0.57, 0.48) forwards;
+        animation: changeOpacity 1s cubic-bezier(0, 0.4, 0.57, 0.48) forwards;
       }
     }
   }
 }
 
-@keyframes rotate-opacity {
+@keyframes changeOpacity {
   0% {
     opacity: 1;
-    transform: translateX(-50%) rotate(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(-50%) rotate(360deg);
   }
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 .tabs {
 

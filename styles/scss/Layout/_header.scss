@@ -167,7 +167,7 @@
       &[data-currentpage="home"] {
 
         &::after {
-          left: calc(8.7vw);
+          left: min(8.7vw, func.rem(124));
           width: func.rem(42);
         } 
       }
@@ -216,7 +216,10 @@
 @media (min-width: 62.5em) {
 
   .header {
+    max-width: func.rem(1600);
+    left: 50%;
     padding-top: func.fluid(0, 3vw, 40);
+    transform: translateX(-50%);
 
     &__dropdown {
       padding-right: func.fluid(0, 8.7vw, 124);
