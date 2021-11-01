@@ -19,6 +19,9 @@ const CrewSelections = ({ crewDatas, crewIndex, changeCrewIndex }: CrewSelection
             data-index={index}
             onClick={changeCrewIndex}>
               <span className="visually-hidden">{crew.name}</span>
+              {index===crewIndex && (
+                <span className="visually-hidden">(Current Item)</span>
+              )}
           </button>
       </li>
     ));

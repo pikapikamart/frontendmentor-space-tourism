@@ -1,4 +1,4 @@
-import DestinationHero from "@/components/destination/hero";
+import DestinationHero from "@/components/destination";
 
 
 const DestinationPage = () =>{

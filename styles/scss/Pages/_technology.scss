@@ -2,3 +2,141 @@
 @use "../Abstract/functions" as func;
 @use "../Abstract/mixins" as mix;
 @use "../Abstract/variables" as var;
+
+
+.technology {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  padding: func.fluid(32, 5vw, 60) 0 ;
+
+  &__selections {
+    display: flex;
+    gap: 0 func.rem(16);
+    margin: func.fluid(34, 7.5vw, 56) 0 func.fluid(24, 6vw, 44);
+    position: relative;
+
+    &[data-currentTech="0"] {
+
+      &::after {
+        transform: translateX(0);
+      }
+    }
+
+    &[data-currentTech="1"] {
+
+      &::after {
+        transform: translateX(calc(100% + func.rem(16)));
+      }
+    }
+
+
+    &[data-currenttech="2"] {
+
+      &::after {
+        transform: translateX(calc(200% + func.rem(32)));
+      }
+    }
+
+
+    &::after {
+      content: "";
+      background-color: var.$white;
+      border-radius: 50%;
+      inset: 0 auto auto 0;
+      min-height: func.fluid(40, 8vw, 80);
+      min-width: func.fluid(40, 8vw, 80);
+      position: absolute;
+      transition: transform .5s ease;
+    }
+  }
+
+  &__selection {
+
+    &-button {
+      background: none;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .25);
+      color: var.$white;
+      display: grid;
+      font-size: func.fluid(16, 3.2vw, 32);
+      font-family: 'Bellefair', serif;
+      min-height: func.fluid(40, 8vw, 80);
+      min-width: func.fluid(40, 8vw, 80);
+      place-content: center;
+      position: relative;
+      transition: color .5s ease;
+      z-index: 10;
+
+      &[aria-selected="true"] {
+        color: var.$dark;
+      }
+
+      span {
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__article {
+    max-width: func.rem(506);
+    text-align: center;
+    padding: 0 func.rem(24);
+  }
+}
+
+@media (min-width: 62.5em) {
+
+  .technology {
+    gap: 0 func.fluid(24, 3vw, 80);
+    grid-template-columns: func.rem(80) auto 1fr;
+    padding-top: func.rem(26);
+
+    &__image-holder {
+      grid-column: 3 / 4;
+      grid-row: 1 / -1;
+      justify-self: end;
+      min-width: func.rem(400);
+    }
+
+    &__selections {
+      flex-direction: column;
+      gap: func.rem(32) 0;
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+      margin: func.fluid(64, 12vw, 11) 0 0;
+
+      &[data-currentTech="0"] {
+
+        &::after {
+          transform: translateY(0);
+        }
+      }
+  
+      &[data-currentTech="1"] {
+  
+        &::after {
+          transform: translateY(calc(100% + func.rem(32)));
+        }
+      }
+  
+  
+      &[data-currenttech="2"] {
+  
+        &::after {
+          transform: translateY(calc(200% + func.rem(64)));
+        }
+      }
+    }
+
+    &__article {
+      grid-column: 2 / 3;
+      grid-row: 1 / -1;
+      margin: func.fluid(64, 12vw, 11) 0 0;
+      max-width: func.rem(470);
+      padding: 0;
+      text-align: left;
+    }
+  }
+}

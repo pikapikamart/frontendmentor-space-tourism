@@ -7,14 +7,18 @@
 .crew {
   display: grid;
   gap: func.rem(32) 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
   padding: func.fluid(32, 5vw, 64) 0 func.rem(104);
 
   &__image {
-    height: func.rem(222);
+    height: func.fluid(222, 76vw, 572);
     margin: 0 auto;
 
     &-holder {
       border-bottom: 1px solid rgba(56, 59, 75);
+      width: 100%;
     }
   }
 
@@ -45,6 +49,10 @@
     @extend %max-width-hero;
     text-align: center;
 
+    &-wrapper {
+      outline: none
+    }
+
     &-heading {
       @extend %hero-content-heading;
     }
@@ -53,8 +61,66 @@
 
 @media (min-width: 48em) {
 
+  .crew {
+    gap: func.rem(40) 0;
+    padding-bottom: 0;
+
+    &__image {
+      
+      &-holder {
+        grid-row: 3 / 4;
+      }
+    }
+
+    &__selections {
+      grid-row: 2 / 3;
+    }
+
+    &__article {
+      grid-row: 1 / 2;
+    }
+  }
+
 }
 
 @media (min-width: 62.5em) {
+
+  .crew {
+    grid-template-columns: repeat(2, auto);
+    gap: 0;
+    justify-items: flex-start;
+    padding-top: 0;
+
+    &__image {
+      height: 100%;
+      margin: 0;
+
+      &-holder {
+        border-bottom: none;
+        grid-column: 2 / 3;
+        grid-row: 1 / -1;
+        min-width: func.rem(400);
+        width: 100%;
+      }
+
+    }
+
+    &__selections {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    &__article {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      max-width: func.rem(614);
+      margin: func.fluid(64, 10vw, 154) 0 func.fluid(64, 10vw, 120);
+      text-align: left;
+
+      &-heading {
+        align-items: flex-start;
+      }
+    }
+  }
 
 }

@@ -84,6 +84,11 @@ p {
     position: absolute;
     transform: translateX(-100%);
   }
+
+  &__crew {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 
@@ -113,6 +118,17 @@ p {
 
       &-technology {
         background-image: url("../../../public/assets/technology/background-technology-tablet.jpg");
+      }
+    }
+  }
+
+  .hero {
+
+    &__heading {
+      margin: 0 auto 0 func.rem(24);
+
+      &-crew {
+        margin: 0 auto 0 func.rem(62);
       }
     }
   }
@@ -147,7 +163,12 @@ p {
   
     &__heading {
       letter-spacing: 4.72px;
-      margin: 0 auto 0 0;
+      margin: 0 auto 0 func.rem(32);
+    }
+
+    &__crew,
+    &__technology {
+      padding: func.fluid(88, 17vw, 212) 0 0 func.fluid(90, 11.5vw, 165);
     }
   }
 }
