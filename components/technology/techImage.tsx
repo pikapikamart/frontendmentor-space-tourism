@@ -24,6 +24,7 @@ const TechImage = ({ images, techIndex, name }: TechImageProps) =>{
     if ( window.innerWidth >= 1000) setImageToShow("portrait");
 
     window.addEventListener("resize", changeImage);
+    setWidth(window.innerWidth);
 
     return () => window.removeEventListener("resize", changeImage);
   }, [])
