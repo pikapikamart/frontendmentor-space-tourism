@@ -1,17 +1,19 @@
-import { useRef } from "react";
+import { useRef,  Dispatch, SetStateAction } from "react";
 import { EventButton } from "./destination";
 
 
 interface TabSelectionsProps {
   tabindex: number,
   destinationNames: string[],
-  changeIndex:  ( event: EventButton) => void
+  changeIndex:  ( event: EventButton) => void,
+  focusContent: boolean,
+  setFocusContent: Dispatch<SetStateAction<boolean>>
 }
 
-const TabSelections = ({ tabindex, destinationNames, changeIndex }: TabSelectionsProps) =>{
+const TabSelections = ({ tabindex, destinationNames, changeIndex, focusContent, setFocusContent }: TabSelectionsProps) =>{
   const tabRefs = useRef<HTMLButtonElement[]>([]);
   const length = destinationNames.length;
-  let destinationTabindex = tabindex;
+  const destinationTabindex = useRef(0);
 
   const addRef = ( element: HTMLButtonElement | null) =>{
     if ( element && !tabRefs.current.includes(element) ) {
@@ -44,13 +46,21 @@ const TabSelections = ({ tabindex, destinationNames, changeIndex }: TabSelection
     if ( key==="ArrowLeft" || key==="ArrowRight") {
       
       if ( key==="ArrowLeft") {
-        destinationTabindex--;
-        destinationTabindex = destinationTabindex < 0? length-1: destinationTabindex;
+        destinationTabindex.current--;
+        destinationTabindex.current = destinationTabindex.current < 0? length-1: destinationTabindex.current;
       } else {
-        destinationTabindex++;
-        destinationTabindex = destinationTabindex > length-1 ? 0: destinationTabindex;
+        destinationTabindex.current++;
+        destinationTabindex.current = destinationTabindex.current > length-1 ? 0: destinationTabindex.current;
       }
-      tabRefs.current[destinationTabindex].focus();
+
+      tabRefs.current[destinationTabindex.current].focus();
+      if ( focusContent ) {
+        setFocusContent(false);
+      }
+    }
+    if ( key ==="ArrowDown" ) {
+      destinationTabindex.current = tabindex;
+      setFocusContent(true);
     }
   }
 

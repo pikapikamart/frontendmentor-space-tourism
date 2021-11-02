@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 
 
 const HomeHero = () =>{
@@ -11,9 +12,10 @@ const HomeHero = () =>{
           <p className="home__text-content text-15">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
         <div className="home__block">
-          {/* add sr-only text */}
-          <button className="home__explore">Explore 
-          <span className="visually-hidden"> frontendmentor space tourism</span></button>
+          <motion.button className="home__explore"
+            whileTap={{scale: .95}}>Explore 
+            <span className="visually-hidden"> frontendmentor space tourism</span>
+          </motion.button>
         </div>
       </section>
   );

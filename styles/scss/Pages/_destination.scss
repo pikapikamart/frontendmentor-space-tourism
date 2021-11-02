@@ -162,6 +162,7 @@
 
   .tabs {
     max-width: func.rem(445);
+    min-height: func.rem(467);
 
     &__selections {
       justify-content: flex-start;
@@ -180,6 +181,11 @@
     &__content {
       text-align: left;
 
+      &:focus-visible {
+        outline: 3px dashed rgb(104, 190, 205);
+        outline-offset: 3px;
+      }
+
       &-information {
         gap: 0 func.rem(80);
         justify-content: flex-start;
@@ -192,12 +198,3 @@
   }
 
 }
-
-
-// @media (min-width: 48em) {
-  
-// }
-
-// @media (min-width: 62.5em) {
-
-// }

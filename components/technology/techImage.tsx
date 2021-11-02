@@ -1,25 +1,23 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { dummyVariant, opacityVariant } from "../motion";
+import TechImageComp from "./techImageComp";
 
 
-interface TechImageProps {
+export interface TechImageProps {
   images: {
     portrait: string,
     landscape: string
   }
-  techIndex: number
+  techIndex: number,
+  name: string
 }
 
-const TechImage = ({ images, techIndex }: TechImageProps) =>{
+const TechImage = ({ images, techIndex, name }: TechImageProps) =>{
   const [ imageToShow, setImageToShow ] = useState("portrait");
+  const [ width, setWidth ] = useState(window.innerWidth);
 
-  const changeImage = ( event: UIEvent ) =>{
-
-    if ( window.innerWidth >= 1000 && imageToShow==="landscape") {
-      setImageToShow("portrait");
-    }if ( window.innerWidth < 1000 && imageToShow==="portrait") {
-      setImageToShow("landscape")
-    }
-  }
+  const changeImage = ( event: UIEvent ) => setWidth(window.innerWidth);
 
   useEffect(() =>{
     
@@ -31,16 +29,21 @@ const TechImage = ({ images, techIndex }: TechImageProps) =>{
     return () => window.removeEventListener("resize", changeImage);
   }, [])
 
+  useEffect(() =>{
+    if ( width >= 1000 && imageToShow==="landscape") {
+      setImageToShow("portrait");
+    }if ( width < 1000 && imageToShow==="portrait") {
+      setImageToShow("landscape")
+    }
+  }, [ width ])
+
   return (
-    <div className="technology__image-holder">
-      <img className="technology__image" 
-        src={imageToShow==="portrait"? images.portrait: images.landscape}
-        alt={techIndex===0? "spacecraft launching":
-            techIndex===1? "spaceport where spacecraft is docked":
-            techIndex===2? "space capsules floating": "" 
-          }
-             />
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      <TechImageComp techIndex={techIndex}
+        key={techIndex}
+        source={imageToShow==="portrait"? images.portrait: images.landscape}
+        name={name}/>
+    </AnimatePresence>
   );
 }
 

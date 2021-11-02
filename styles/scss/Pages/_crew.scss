@@ -10,7 +10,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, auto);
   justify-items: center;
-  padding: func.fluid(32, 5vw, 64) 0 func.rem(104);
+  padding: func.fluid(32, 5vw, 64) func.rem(24) func.rem(104);
 
   &__image {
     height: func.fluid(222, 76vw, 572);
@@ -89,7 +89,8 @@
     grid-template-columns: repeat(2, auto);
     gap: 0;
     justify-items: flex-start;
-    padding-top: 0;
+    min-height: func.rem(700);
+    padding: 0 0 0;
 
     &__image {
       height: 100%;

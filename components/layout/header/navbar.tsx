@@ -8,7 +8,6 @@ import Navlinks from "./navlinks";
 const Navbar = () =>{
   const currentPath = useRouter().pathname;
 
-
   return (
     <>
       <div>

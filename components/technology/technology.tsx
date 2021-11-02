@@ -21,7 +21,8 @@ const Technology = () =>{
         <>
           <TechImage 
             images={technologyData[dataIndex].images} 
-            techIndex={dataIndex} />
+            techIndex={dataIndex}
+            name={technologyData[dataIndex].name} />
           <TechSelections 
             techDatas={technologyData} 
             techIndex={dataIndex} 

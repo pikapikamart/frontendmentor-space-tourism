@@ -1,3 +1,6 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { dummyVariant, opacityVariant } from "@/components/motion";
+
 
 interface CrewImageProps {
   source: string,
@@ -7,11 +10,19 @@ interface CrewImageProps {
 const CrewImage = ({ source, alt}: CrewImageProps) =>{
 
   return (
-    <div className="crew__image-holder">
-       <img className="crew__image" 
-         src={source} 
-         alt={alt}  />
-     </div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div className="crew__image-holder"
+        key={source}
+        variants={dummyVariant}
+        initial="hidden"
+        animate="visible"
+        exit="exit">
+        <motion.img className="crew__image" 
+          src={source} 
+          alt={alt}
+          variants={opacityVariant}  />
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

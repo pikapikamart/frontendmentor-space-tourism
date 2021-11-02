@@ -1,9 +1,10 @@
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { useSpaceContext } from "@/lib/store/context";
+import { useChangeSelection } from "@/lib/hooks";
 import CrewImage from "./crewImage";
 import CrewSelections from "./crewSelections";
 import CrewContent from "./crewContent";
-import { useChangeSelection } from "@/lib/hooks";
 
 
 const Crew = () =>{

@@ -79,6 +79,23 @@
     }
   }
 
+  &__image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &-holder {
+      position: relative;
+      width: 100%;
+    }
+
+    &-hidden {
+      visibility: hidden;
+    }
+  }
+
   &__article {
     max-width: func.rem(506);
     text-align: center;
@@ -91,6 +108,7 @@
   .technology {
     gap: 0 func.fluid(24, 3vw, 80);
     grid-template-columns: func.rem(80) auto 1fr;
+    min-height: func.rem(740);
     padding-top: func.rem(26);
 
     &__image-holder {

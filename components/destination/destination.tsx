@@ -17,11 +17,8 @@ export interface EventButton extends React.MouseEvent<HTMLButtonElement, MouseEv
 const Destination = () =>{
   const spaceContext = useSpaceContext();
   const destinationsData = spaceContext?.destinations;
-  const { dataIndex, handleChangeDataIndex, setSiteData, hasSelected, setHasSelected } = useChangeSelection();
-  // const [ tabindex, setTabindex ] = useState(0);
-  // const [ hasChanged, setHasChanged ] = useState(false);
-  // const destImageOne = useRef<HTMLImageElement | null>(null);
-  // const destImageTwo = useRef<HTMLImageElement | null>(null);
+  const [ focusOnContent, setFocusOnContent ] = useState(false);
+  const { dataIndex, handleChangeDataIndex, hasSelected, setHasSelected } = useChangeSelection();
   const copyIndex = useRef(0);
 
   useEffect(() =>{
@@ -52,10 +49,13 @@ const Destination = () =>{
               tabindex={dataIndex} 
               destinationNames={getDestinationsName()}
               changeIndex={handleChangeDataIndex}
+              focusContent={focusOnContent}
+              setFocusContent={setFocusOnContent}
             />
             <TabContent 
               tabindex={dataIndex} 
               destination={destinationsData[dataIndex]} 
+              shouldFocus={focusOnContent}
             />
           </div>
         </>

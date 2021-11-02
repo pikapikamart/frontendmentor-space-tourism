@@ -85,7 +85,8 @@ p {
     transform: translateX(-100%);
   }
 
-  &__crew {
+  &__crew,
+  &__technology {
     padding-left: 0;
     padding-right: 0;
   }
