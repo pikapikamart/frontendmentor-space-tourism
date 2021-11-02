@@ -44,10 +44,9 @@ interface ContextChildren {
 
 const SpaceDataContext = createContext<SpaceDataShape | null>(null);
 
-
 export const ContextWrapper = ( {children} : ContextChildren) =>{
   const [ spaceData, setSpaceData ] = useState<SpaceDataShape | null>(null);
-
+  
   useEffect(() =>{
     const fetchSpaceData = async () =>{
       const promiseSpaceData = await fetch("https://my-json-server.typicode.com/pikamart/jsonserver/db");
@@ -60,6 +59,7 @@ export const ContextWrapper = ( {children} : ContextChildren) =>{
 
 // Preload all images
   useEffect(() =>{
+    
     if ( spaceData ) {
       Object.keys(spaceData).forEach(( spaceKey: String ) => {
         spaceData[spaceKey as keyof typeof spaceData].map((data) =>{
@@ -70,6 +70,7 @@ export const ContextWrapper = ( {children} : ContextChildren) =>{
         })
       })
     }
+
   }, [ spaceData ])
 
   return (

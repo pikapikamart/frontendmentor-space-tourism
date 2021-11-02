@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactNode } from "react";
-
+import { useRouter } from "next/dist/client/router";
 import { Header } from "@/components/layout/header";
 
 
@@ -9,6 +9,8 @@ type LayoutChildren = {
 }
 
 const Layout = ({ children}: LayoutChildren) =>{
+  const pathName = useRouter().pathname.slice(1);
+
   return (
     <>
      <Head>
@@ -23,7 +25,12 @@ const Layout = ({ children}: LayoutChildren) =>{
         <title>Frontendmentor Space Tourism</title>
       </Head>
       <Header />
-      {children}
+      <main className={`main ${pathName===""? "main--theme-home":
+                              pathName==="destination"? "main--theme-destination":
+                              pathName==="crew"? "main--theme-crew":
+                              pathName==="technology"? "main--theme-technology": ""}`}>
+        {children}
+      </main>
     </>
   )
 }
