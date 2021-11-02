@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { EventButton } from "@/components/destination/destination";
-import { Crew, Technology, Destinations } from "../store/context";
+import { EventButton, Crew, Technology, Destination } from "@/lib/typings";
 
 
 export const useChangeSelection = () =>{
   const liveRegion = useRef<HTMLParagraphElement | null>(null);
-  const [ siteData, setSiteData ] = useState<Crew[] | Technology[] | Destinations[] | null>(null);
+  const [ siteData, setSiteData ] = useState<Crew[] | Technology[] | Destination[] | null>(null);
   const [ dataIndex, setDataIndex ] = useState(0);
   const [ hasSelected, setHasSelected ] = useState(false);
 
