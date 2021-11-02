@@ -15,7 +15,7 @@ const CrewSelections = ({ crewDatas, crewIndex, changeCrewIndex }: CrewSelection
       <li className="crew__selection"
         key={index}>
           <button className="crew__selection-button"
-            aria-selected={index===crewIndex}
+            data-selected={index===crewIndex}
             data-index={index}
             onClick={changeCrewIndex}>
               <span className="visually-hidden">{crew.name}</span>

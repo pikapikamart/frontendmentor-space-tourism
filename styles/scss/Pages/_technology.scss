@@ -69,7 +69,7 @@
       transition: color .5s ease;
       z-index: 10;
 
-      &[aria-selected="true"] {
+      &[data-selected="true"] {
         color: var.$dark;
       }
 
@@ -155,7 +155,7 @@
 
         &:hover {
 
-          &:not(&[aria-selected="true"]) {
+          &:not(&[data-selected="true"]) {
             border-color: rgba(255, 255, 255, 1);
           }
         }

@@ -14,7 +14,7 @@ const TechSelections = ({ techDatas, techIndex, changeTechIndex}: TechSelections
       <li className="technology__selection"
         key={index}>
           <button className="technology__selection-button"
-            aria-selected={index===techIndex}
+            data-selected={index===techIndex}
             data-index={index}
             onClick={changeTechIndex}
           >

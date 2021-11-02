@@ -39,7 +39,7 @@
       padding: 0;
       transition: background-color 1s ease;
 
-      &[aria-selected="true"] {
+      &[data-selected="true"] {
         background-color: var.$white;
       }
     }
@@ -117,7 +117,7 @@
 
         &:hover {
 
-          &:not(&[aria-selected="true"]) {
+          &:not(&[data-selected="true"]) {
             background-color: rgba(255, 255, 255, .5);
           }
         }
