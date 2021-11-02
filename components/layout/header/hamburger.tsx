@@ -24,7 +24,7 @@ const Hamburger = ({ currentPath }: { currentPath: string }) =>{
     <button className="header__hamburger"
       aria-expanded={isExpanded}
       onClick={handleHamburgerExpand}>
-      <span className="visually-hidden">navigation dropdown <menu type="toolbar"></menu></span>
+      <span className="visually-hidden">navigation dropdown menu</span>
     </button>
   )
 }

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Html } from "next/document";
 import { ReactNode } from "react";
 import { useRouter } from "next/dist/client/router";
 import { Header } from "@/components/layout/header";
@@ -20,7 +21,8 @@ const Layout = ({ children}: LayoutChildren) =>{
         <meta name="keywords" content="Space, Tourism, Space tourism" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        {/* @ts-ignore */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow&display=swap" rel="stylesheet" />
         <title>Frontendmentor Space Tourism</title>
       </Head>
