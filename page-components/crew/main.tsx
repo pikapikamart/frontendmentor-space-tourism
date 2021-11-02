@@ -1,10 +1,11 @@
 import CrewHero from "@/components/crew";
+import { CrewPageProps } from "@/pages/crew";
 
 
-const CrewPage = () =>{
+const CrewPage = ({ crewData }: CrewPageProps) =>{
   
   return (
-    <CrewHero />
+    <CrewHero crewData={crewData} />
   );
 }
 

@@ -1,13 +1,26 @@
-import { NextPage } from "next";
-import { Technology } from "@/page-components/technology";
+import { NextPage, GetStaticProps } from "next";
+import { Technology as TechnologyMain } from "@/page-components/technology";
+import { fetchSpaceData } from "@/lib/utils";
+import { Technology } from "@/lib/typings";
 
 
-const TechnologyPage: NextPage = () =>{
+export interface TechnologyPageProps {
+  technologyData: Technology[]
+}
+
+const TechnologyPage: NextPage<TechnologyPageProps> = ({ technologyData }: TechnologyPageProps) =>{
 
   return (
-    <Technology />
+    <TechnologyMain technologyData={technologyData}/>
   );
 }
 
+export const getStaticProps: GetStaticProps = async() =>{
+  const technologyData = await fetchSpaceData("technology");
+
+  return {
+    props: { technologyData }
+  }
+}
 
 export default TechnologyPage

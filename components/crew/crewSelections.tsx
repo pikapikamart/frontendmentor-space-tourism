@@ -1,5 +1,5 @@
-import { Crew } from "@/lib/store/context";
-import { EventButton } from "../destination/destination";
+import { Crew } from "@/lib/typings";
+import { EventButton } from "@/lib/typings";
 
 
 interface CrewSelectionProps {

@@ -1,10 +1,11 @@
+import { TechnologyPageProps } from "@/pages/technology";
 import TechnologyHero from "@/components/technology";
 
 
-const TechnologyPage = () =>{
+const TechnologyPage = ({ technologyData }: TechnologyPageProps) =>{
   
   return (
-    <TechnologyHero />
+    <TechnologyHero technologyData={technologyData}/>
   );
 }
 

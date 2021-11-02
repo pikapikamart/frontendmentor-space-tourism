@@ -1,12 +1,26 @@
-import { NextPage } from "next";
-import { Crew } from "@/page-components/crew";
+import { NextPage, GetStaticProps } from "next";
+import { Crew as CrewMain } from "@/page-components/crew";
+import { fetchSpaceData } from "@/lib/utils";
+import { Crew } from "@/lib/typings";
 
 
-const CrewPage: NextPage = () =>{
+export interface CrewPageProps {
+  crewData: Crew[]
+}
+
+const CrewPage: NextPage<CrewPageProps> = ({ crewData }: CrewPageProps) =>{
 
   return (
-    <Crew />
+    <CrewMain crewData={crewData} />
   );
+}
+
+export const getStaticProps: GetStaticProps = async () =>{
+  const crewData = await fetchSpaceData("crew");
+
+  return {
+    props: { crewData }
+  }
 }
 
 

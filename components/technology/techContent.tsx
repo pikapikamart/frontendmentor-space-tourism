@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Technology } from "@/lib/store/context";
+import { Technology } from "@/lib/typings";
 import { customSwipeVariant, dummyVariant } from "@/components/motion";
 
 

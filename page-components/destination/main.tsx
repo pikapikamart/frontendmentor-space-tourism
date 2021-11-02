@@ -1,9 +1,10 @@
 import DestinationHero from "@/components/destination";
+import { DestinationPageProps } from "@/pages/destination";
 
 
-const DestinationPage = () =>{
+const DestinationPage = ({ destinationData }: DestinationPageProps) =>{
   return (
-    <DestinationHero />
+    <DestinationHero destinationData={destinationData}/>
   );
 }
 

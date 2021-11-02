@@ -1,8 +1,8 @@
-import { Destinations } from "@/lib/store/context";
+import { Destination } from "@/lib/typings";
 
 
 interface DestinationImageProps {
-  destination: Destinations,
+  destination: Destination,
   hasChanged: boolean,
   copyImage: string
 }

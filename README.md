@@ -35,7 +35,9 @@ Live Site URL: [Live site of the challenge](https://frontendmentor-space-tourism
 
 Hello, this is my 23rd challenge from frontendmentor^^. it's been a long time since I submitted a new solution so it is kind of refreshing to make one again^^.
 
-For this one, I used next.js since it makes handling multi pages easier. I used react-context to store data at first I want to use initialprops but then again, if I would to use it, I would need to create a store as well or props-drilling which I don't like.
+For this one, I used next.js since it makes handling multi pages easier. 
+ 1. I used react-context to store data at first I want to use initialprops but then again, if I would to use it, I would need to create a store as well or props-drilling which I don't like.
+ 2. Changed. I removed the context and used getStaticProps so that it will serve now the data instead of treating it as SPA.
 
 I used a custom link for the api since I don't know how to fetch local .json file in react :>>.
 

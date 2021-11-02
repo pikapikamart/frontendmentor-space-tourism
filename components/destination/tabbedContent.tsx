@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { Destinations } from "@/lib/store/context";
+import { Destination } from "@/lib/typings";
 import { dummyVariant, customSwipeVariant } from "@/components/motion";
 
 
 interface TabContentProps {
   tabindex: number,
-  destination: Destinations,
+  destination: Destination,
   shouldFocus: boolean
 }
 

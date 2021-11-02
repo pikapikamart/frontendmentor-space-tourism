@@ -1,5 +1,5 @@
 import { useRef,  Dispatch, SetStateAction } from "react";
-import { EventButton } from "./destination";
+import { EventButton } from "@/lib/typings";
 
 
 interface TabSelectionsProps {

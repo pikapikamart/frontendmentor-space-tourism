@@ -1,8 +1,18 @@
-import Crew from "./crew";
+import { useEffect } from "react";
+import { CrewPageProps } from "@/pages/crew";
+import { useChangeSelection } from "@/lib/hooks";
+import CrewImage from "./crewImage";
+import CrewSelections from "./crewSelections";
+import CrewContent from "./crewContent";
 
 
-const CrewHero = () => {
-  
+const CrewHero = ({ crewData }: CrewPageProps) => {
+  const { liveRegion, dataIndex, handleChangeDataIndex, setSiteData } = useChangeSelection();
+
+  useEffect(() =>{
+    setSiteData(crewData);
+  }, [])
+
   return (
     <section className="hero hero__crew">
       <h1 className="hero__heading hero__heading--padded">
@@ -10,7 +20,19 @@ const CrewHero = () => {
           aria-hidden="true">02</span>
         Meet your crew
       </h1>
-      <Crew />
+      <div className="crew">
+        <CrewImage 
+          source={crewData[dataIndex].images.webp}
+          alt={crewData[dataIndex].name} />
+        <CrewSelections 
+          crewDatas={crewData} 
+          crewIndex={dataIndex}
+          changeCrewIndex={handleChangeDataIndex} />
+        <CrewContent crewSingleData={crewData[dataIndex]}/>
+        <p className="crew__live-region visually-hidden" 
+          aria-live="polite"
+          ref={liveRegion}></p>
+      </div>
     </section>
   );
 }

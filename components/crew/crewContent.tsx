@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Crew } from "@/lib/store/context";
+import { Crew } from "@/lib/typings";
 import { dummyVariant, customSwipeVariant } from "@/components/motion";
 
 

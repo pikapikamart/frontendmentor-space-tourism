@@ -1,6 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { dummyVariant, opacityVariant } from "../motion";
 import TechImageComp from "./techImageComp";
 
 
@@ -15,7 +14,7 @@ export interface TechImageProps {
 
 const TechImage = ({ images, techIndex, name }: TechImageProps) =>{
   const [ imageToShow, setImageToShow ] = useState("portrait");
-  const [ width, setWidth ] = useState(window.innerWidth);
+  const [ width, setWidth ] = useState(0);
 
   const changeImage = ( event: UIEvent ) => setWidth(window.innerWidth);
 

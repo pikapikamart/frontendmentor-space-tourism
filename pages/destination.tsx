@@ -1,11 +1,26 @@
-import { NextPage } from "next";
-import { Destination } from "@/page-components/destination";
+import { NextPage, GetStaticProps } from "next";
+import { Destination as DestinationMain} from "@/page-components/destination";
+import { Destination } from "@/lib/typings";
+import { fetchSpaceData } from "@/lib/utils";
 
 
-const DestinationPage: NextPage = () =>{
+export interface DestinationPageProps {
+  destinationData: Destination[]
+}
+
+const DestinationPage: NextPage<DestinationPageProps> = ({destinationData}: DestinationPageProps) =>{
+  
   return (
-    <Destination />
+    <DestinationMain destinationData={destinationData} />
   );
+}
+
+export const getStaticProps: GetStaticProps = async() =>{
+  const destinationData = await fetchSpaceData("destinations")
+  
+  return {
+    props: { destinationData }
+  }
 }
 
 
