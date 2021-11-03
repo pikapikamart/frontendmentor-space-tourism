@@ -80,19 +80,10 @@
   }
 
   &__image {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 100%;
 
     &-holder {
-      position: relative;
       width: 100%;
-    }
-
-    &-hidden {
-      visibility: hidden;
     }
   }
 

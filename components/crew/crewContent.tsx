@@ -11,7 +11,7 @@ const CrewContent = ({ crewSingleData }: CrewContentProps) =>{
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <motion.article className="crew__article"
+      <motion.div className="crew__article"
         key={crewSingleData.role}
         variants={dummyVariant}
         initial="hidden"
@@ -28,7 +28,7 @@ const CrewContent = ({ crewSingleData }: CrewContentProps) =>{
           variants={customSwipeVariant(-25, 1)}>
           {crewSingleData.bio}
         </motion.p>
-      </motion.article>
+      </motion.div>
     </AnimatePresence>
   );
 }

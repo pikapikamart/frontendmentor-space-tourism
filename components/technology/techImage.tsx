@@ -38,12 +38,12 @@ const TechImage = ({ images, techIndex, name }: TechImageProps) =>{
   }, [ width ])
 
   return (
-    <AnimatePresence exitBeforeEnter>
+    // <AnimatePresence exitBeforeEnter>
       <TechImageComp techIndex={techIndex}
-        key={techIndex}
+        // key={techIndex}
         source={imageToShow==="portrait"? images.portrait: images.landscape}
         name={name}/>
-    </AnimatePresence>
+    // </AnimatePresence>
   );
 }
 

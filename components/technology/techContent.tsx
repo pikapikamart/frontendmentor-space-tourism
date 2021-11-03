@@ -11,7 +11,7 @@ const TechContent = ({ techSingleData,  }: TechContentProps) =>{
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <motion.article className="technology__article"
+      <motion.div className="technology__article"
         key={`crew/${techSingleData.name}`}
         variants={dummyVariant}
         initial="hidden"
@@ -28,7 +28,7 @@ const TechContent = ({ techSingleData,  }: TechContentProps) =>{
           variants={customSwipeVariant(-25, 1)}>
           {techSingleData.description}
         </motion.p>
-      </motion.article>
+      </motion.div>
     </AnimatePresence>
   );
 }
