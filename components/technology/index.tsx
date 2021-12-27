@@ -14,7 +14,7 @@ const TechnologyHero = ({ technologyData }: TechnologyPageProps) =>{
   }, [])
 
   return (
-    <section className="hero hero__technology">
+    <div className="hero hero__technology">
       <h1 className="hero__heading hero__heading--padded hero__heading-crew">
         <span className="hero__heading-number" 
           aria-hidden="true">03</span>
@@ -33,8 +33,8 @@ const TechnologyHero = ({ technologyData }: TechnologyPageProps) =>{
         <p className="technology__live-region visually-hidden"
           aria-live="polite"
           ref={liveRegion} />
+      </div>
     </div>
-    </section>
   );
 }
 

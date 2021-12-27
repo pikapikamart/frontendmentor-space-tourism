@@ -14,7 +14,7 @@ const CrewHero = ({ crewData }: CrewPageProps) => {
   }, [])
 
   return (
-    <section className="hero hero__crew">
+    <div className="hero hero__crew">
       <h1 className="hero__heading hero__heading--padded">
         <span className="hero__heading-number" 
           aria-hidden="true">02</span>
@@ -33,7 +33,7 @@ const CrewHero = ({ crewData }: CrewPageProps) => {
           aria-live="polite"
           ref={liveRegion}></p>
       </div>
-    </section>
+    </div>
   );
 }
 

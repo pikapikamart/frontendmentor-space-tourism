@@ -27,7 +27,7 @@ const DestinationHero = ({ destinationData }: DestinationPageProps) =>{
   )
 
   return (
-    <section className="hero">
+    <div className="hero">
       <h1 className="hero__heading hero__heading--padded">
         <span className="hero__heading-number" 
           aria-hidden="true">01</span>
@@ -53,7 +53,7 @@ const DestinationHero = ({ destinationData }: DestinationPageProps) =>{
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
